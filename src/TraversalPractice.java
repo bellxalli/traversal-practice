@@ -45,8 +45,16 @@ public class TraversalPractice {
    * @return the max value
    */
   public static int maxVal(Node<Integer> node) {
-    return 0;
-  }
+
+  if (node == null) {
+    return 0; //edge case 1
+  } //end if
+      
+    int leftMaxNode = maxVal(node.left);
+    int rightMaxNode = maxVal(node.right);
+    return Math.max(node.value, Math.max(leftMaxNode, rightMaxNode));
+  
+  }//end maxVal
 
   /**
    * Returns the number of levels in the tree.
