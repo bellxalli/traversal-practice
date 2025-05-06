@@ -50,7 +50,7 @@ public class TraversalPractice {
 
   /**
    * Returns the number of levels in the tree.
-   * Edge cases: 
+   * Edge cases:
    *   Returns 0 if node is null, returns 1 if there is only a root with no children.
    * 
    * @param <T> The type of value the nodes hold
@@ -58,8 +58,15 @@ public class TraversalPractice {
    * @return The number of levels in the tree
    */
   public static <T> int numLevels(Node<T> node) {
-    return 0;
-  }
+
+  if (node == null) {
+          return 0; //edge case 1
+  }//end if
+    int leftNode = numLevels(node.left);
+    int rightNode = numLevels(node.right);
+    return 1 + Math.max(leftNode, rightNode); //edge case 2- the +1 ensures that if the nodes are 0/null, it will still return 1
+
+  }//end num levels
 
   public static void main(String[] args) {
     /*
